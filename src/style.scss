@@ -1,0 +1,612 @@
+$darkBlue : #25396e;
+$lightBlue : #49a2dc;
+$lightGray: #d2d2d2;
+$lightRed: #ff5252;
+$lightViolet: #b8b8ce;
+$violet:#94499b;
+$brown:#dcc075;
+$lightBrown:#dcc075;
+$lightBrown:#dcc075;
+$lightGreen:#a3e20a;
+$green:#a3e20a;
+$darkRed:#73261f;
+
+
+@mixin placeholder($color,$size,$line-height,$font-style)
+{
+  input::-webkit-input-placeholder
+  {
+    color:$color;
+    font-size:$size;
+    line-height: $line-height;
+    font-style: $font-style;
+  }
+  input::-moz-placeholder
+  {
+    color:$color;
+    font-size:$size;
+    line-height: $line-height;
+    font-style: $font-style;
+  }
+  input:-ms-input-placeholder
+  {
+    color:$color;
+    font-size:$size;
+    line-height: $line-height;
+    font-style: $font-style;
+  }
+  input:-moz-placeholder
+  {
+    color:$color;
+    font-size:$size;
+    line-height: $line-height;
+    font-style: $font-style;
+  }
+  textarea::-webkit-input-placeholder
+  {
+    color:$color;
+    font-size:$size;
+    line-height: $line-height;
+    font-style: $font-style;
+  }
+  textarea::-moz-placeholder
+  {
+    color:$color;
+    font-size:$size;
+    line-height: $line-height;
+    font-style: $font-style;
+  }
+  textarea:-ms-input-placeholder
+  {
+    color:$color;
+    font-size:$size;
+    line-height: $line-height;
+    font-style: $font-style;
+  }
+  textarea:-moz-placeholder
+  {
+    color:$color;
+    font-size:$size;
+    line-height: $line-height;
+    font-style: $font-style;
+  }
+}
+
+@mixin transform($args...)
+{
+  -webkit-transform:$args;
+  -moz-transform:$args;
+  -o-transform:$args;
+  -ms-transform:$args;
+  transform:$args;
+}
+
+@mixin transition($args...)
+{
+  -webkit-transition:$args;
+  -moz-transition:$args;
+  -o-transition:$args;
+  -ms-transition:$args;
+  transition:$args;
+}
+
+body
+{
+
+  .form-sign-up
+  {
+    margin-top:200px;
+    font-size:0px;
+
+    & > h5
+    {
+      margin-bottom:95px;
+      text-align: center;
+      color:$darkBlue;
+      font-size:44px;
+      line-height: 46px;
+      font-weight: 700;
+    }
+
+    & > div.input-field
+    {
+      display:inline-block;
+      width:50%;
+      padding:0px 20px;
+      font-size: 20px;
+      float:left;
+
+      & > div
+      {
+        text-align: left;
+
+        & > label
+        {
+          display: block;
+          padding-left:35px;
+          font-size: 16px;
+          line-height: 18px;
+          font-weight: 600;
+        }
+
+        & > input
+        {
+          display:block;
+          width:100%;
+          height: 88px;
+          border-radius: 44px;
+          box-shadow: none;
+          border: 1px solid $darkBlue;
+          padding-left: 35px;
+          padding-right: 35px;
+          color: $lightViolet;
+          font-size:22px;
+          line-height: 88px;
+          
+
+          &:focus
+          {
+            outline: none;
+          }
+        }
+
+        @include placeholder($lightGray , 20px, 22px, normal);
+
+        & > div.gender
+        {
+          display:block;
+          width:100%;
+          height: 88px;
+          position:relative;
+          border-radius: 44px;
+          box-shadow: none;
+          border: 1px solid $darkBlue;
+          padding-left: 0px;
+          padding-right: 0px;
+          line-height: 88px;
+          overflow: hidden;
+
+          & > span
+          {
+            display: inline-block;
+
+            width:50%;
+            height:100%;
+            text-align: center;
+            position: relative;
+
+            & > span
+            {
+              display:inline-block;
+              position:absolute;
+              top:10px;
+              right: 10px;
+              bottom: 10px;
+              left:10px;
+              color: $darkBlue;
+              border-radius: 33px;
+              text-align: center;
+              line-height: 66px;
+              font-size:18px;
+              font-weight: 600;
+              @include transition(background-color .3s linear);
+              cursor: pointer;
+            }
+
+            & > .active
+            {
+
+              background-color: $darkBlue;
+              color:#fff;
+
+              &:hover
+              {
+                background-color: $darkBlue;
+                color:#fff;
+              }
+            }
+
+            & > span:hover
+            {
+                background-color: rgba($darkBlue, .2);
+                cursor: pointer;
+            }
+          }
+        }
+
+
+
+        & > div.error
+        {
+          min-height:48px;
+          padding: 10px 35px 20px;
+          color:$lightRed;
+          font-size:16px;
+          line-height: 18px;
+          font-weight: 600;
+          opacity: 0;
+          @include transition(opacity .3s linear);
+
+          &.show
+          {
+            opacity: 1;
+          }
+        }
+      }
+      & > button
+      {
+        background-color: $darkBlue;
+        color:#fff;
+        height: 74px;
+        outline: none;
+        max-width: 100%;
+        width:210px;
+        border-radius: 37px;
+        font-size: 18px;
+        font-weight: 600;
+        @include transition(background-color .3s linear);
+
+        &:hover
+        {
+          background-color: $lightBlue;
+        }
+      }
+
+      &.submit
+      {
+        float: none;
+        clear: both;
+      }
+
+    }
+
+  }
+
+  .pokmon-list
+  {
+
+    h5
+    {
+      margin-top: 50px;
+      text-align: center;
+      color:$darkBlue;
+      font-size:44px;
+      line-height: 46px;
+      font-weight: 700;
+      margin-bottom:75px;
+    }
+
+     .cards-container
+     {
+          & > .card-pokemon
+          {
+            text-align: left;
+
+            $darkBlue : #25396e;
+            $lightBlue : #49a2dc;
+            $lightGray: #d2d2d2;
+            $lightRed: #ff5252;
+            $lightViolet: #b8b8ce;
+            $violet:#94499b;
+            $brown:#dcc075;
+            $lightBrown:#e2cf83;
+            $yellow:#ffeb3b;
+            $lightGreen:#a3e20a;
+            $green:#a3e20a;
+            $darkRed:#73261f;
+
+            &.flying
+            {
+              & > div
+              {
+                background-color: $lightBlue;
+              }
+            }
+            &.rock
+            {
+              & > div
+              {
+                background-color: $brown;
+              }
+            }
+            &.water
+            {
+              & > div
+              {
+                background-color: $lightBlue;
+              }
+            }
+
+            &.electric
+            {
+              & > div
+              {
+                background-color: $yellow;
+              }
+            }
+            &.psychic
+            {
+              & > div
+              {
+                background-color: $violet;
+              }
+            }
+            &.fire
+            {
+              & > div
+              {
+                background-color: $darkRed;
+              }
+            }
+
+            &.grass
+            {
+              & > div
+              {
+                background-color: $lightGray;
+              }
+            }
+            &.bug
+            {
+              & > div
+              {
+                background-color: $lightRed;
+              }
+            }
+
+            &.normal
+            {
+              & > div
+              {
+                background-color: $lightBrown;
+              }
+            }
+            &.poison
+            {
+              & > div
+              {
+                background-color: $lightViolet;
+              }
+            }
+            &.ice
+            {
+              & > div
+              {
+                background-color: #a5d6d7;
+              }
+            }
+
+            &.fighting, &.dragon
+            {
+              & > div
+              {
+                background-color: $darkRed;
+              }
+            }
+
+            & > div
+            {
+              background-color: #000;
+              color:#fff;
+              padding:45px;
+              border-radius: 15px;
+
+              & > p.title
+              {
+                text-transform: uppercase;
+                font-size:24px;
+                line-height:26px;
+                font-weight: 900;
+                margin-bottom:40px;
+              }
+
+              & > div.img-container
+              {
+                text-align: center;
+                margin-bottom: 45px;
+
+                & > img
+                {
+                  display:inline-block;
+                  width:auto;
+                  height:125px;
+                  border-radius: 50%;
+                }
+              }
+
+              & > div.pokemon-types
+              {
+                margin-bottom:40px;
+
+                & > span
+                {
+                  display:inline-block;
+                  min-width:100px;
+                  text-align:center;
+                  font-size: 14px;
+                  font-weight: 600;
+                  margin-right:15px;
+                  padding:12px 5px;
+                  background-color: $darkBlue;
+                  border-radius: 22px;
+                }
+              }
+
+              & > div.pokemon-skils
+              {
+                border-top:1px solid #fff;
+                padding-top:36px;
+
+                & > div
+                {
+                  font-size:16px;
+                  line-height:18px;
+                  font-weight: 500;
+                  padding-bottom:12px;
+
+                  & > span
+                  {
+                    display:inline-block;
+
+                    & + span
+                    {
+                      float:right;
+                    }
+                  }
+
+                  &:last-child
+                  {
+                    padding-bottom: 0px;
+                  }
+                }
+              }
+
+              &:hover
+              {
+                cursor: pointer;
+                box-shadow: 5px 5px 10px 4px rgba(0,0,0,.6);
+              }
+            }
+
+
+          }
+     }
+
+    .refresh
+    {
+      padding-top:30px;
+
+      & > button
+      {
+        outline: none;
+        display:inline-block;
+        width:90px;
+        height:90px;
+        border-radius: 50%;
+        background-color: #000;
+        color:#fff;
+        border:2px solid #000;
+        @include transition(background-color .3s linear);
+
+        &:hover
+        {
+          background-color: rgba($darkBlue,.6);
+        }
+      }
+
+
+
+    }
+  }
+
+  .profile
+  {
+    & > div
+    {
+      & > div
+      {
+        & > h5
+        {
+          margin-top:150px;
+          margin-bottom:0px;
+          text-align: center;
+          color:$darkBlue;
+          font-size:55px;
+          line-height: 55px;
+          font-weight: 700;
+        }
+
+        & > .card-profile
+        {
+          width:100%;
+          max-width:630px;
+          margin:90px auto 0px;
+          padding:0px 0px 20px;
+          color:#fff;
+          background-color:$violet ;
+          border-radius:30px;
+          text-align:left;
+
+          & > div
+          {
+            & > .header-card
+            {
+              text-align:right;
+              position:relative;
+
+              & > div
+              {
+                display:inline-block;
+
+                &.title
+                {
+                  position:absolute;
+                  left:65px;
+                  text-align:left;
+                  top:50%;
+                  @include transform(translate(0%,-50%));
+
+                  & > p
+                  {
+                    font-size:20px;
+                    line-height:20px;
+                    margin-bottom:0px;
+
+                    &:first-child
+                    {
+                      padding-bottom:5px;
+                      font-weight: 900;
+                    }
+                  }
+                }
+
+                &.pokemon-img
+                {
+                  padding:20px 38px;
+
+                  & > img
+                  {
+                    display:inline-block;
+                    border-radius: 50%;
+                  }
+                }
+
+              }
+            }
+
+            & > .use-data
+            {
+
+              & > div
+              {
+                padding:12px 0px 12px 65px;
+
+                &:nth-child(2n + 1)
+                {
+                  background-color: rgba(255,255,255,.1);
+                }
+
+                & > span
+                {
+                  display:inline-block;
+                  font-size:20px;
+                  line-height:20px;
+
+                  &:first-child
+                  {
+                    padding-right:30px;
+                    font-weight: 900;
+                  }
+                }
+              }
+            }
+          }
+
+
+
+        }
+      }
+    }
+  }
+
+}
