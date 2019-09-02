@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import PokemonCard from './pokemon-card'
 import { connect } from 'react-redux'
 import {getPokemons} from "../../store/actions/pokemonsActions";
+import {saveSelectPokemon} from "../../store/actions/pokemonsActions";
 
 
 class PokemonList extends Component {
@@ -10,8 +11,8 @@ class PokemonList extends Component {
         cards:[1,2,3]
     }
 
-    goToProfile = ()=>{
-
+    goToProfile = (event, selectedPokemonName ) => {
+        this.props.saveSelectPokemon(selectedPokemonName)
         this.props.history.push('/profile')
     }
 
@@ -65,14 +66,17 @@ class PokemonList extends Component {
 
 const mapStateToProps = (state) => {
     return {
+
         auth: state.auth,
         pokemonsData: state.pokemonsData.pokemons,
+        selectedPokemonName: state.pokemonsData.selectedPokemonName
     }
 }
 
 const mapDispatchToProps = (dispatch)=> {
     return {
-        getPokemons: () => dispatch(getPokemons())
+        getPokemons: () => dispatch(getPokemons()),
+        saveSelectPokemon: (pokemonName) => dispatch(saveSelectPokemon(pokemonName))
     }
 }
 

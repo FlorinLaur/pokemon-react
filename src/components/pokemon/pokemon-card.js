@@ -8,11 +8,16 @@ class PokemonCard extends Component {
     }
 
 
+    handleSelected = (e) =>{
+        this.props.parentFunc(e, this.props.pInfo.name)
+    }
+
+
     render() {
 
         return (
             <div className={'col-4 card-pokemon ' + this.props.pInfo.types[0].type.name}>
-                <div onClick={this.props.parentFunc}>
+                <div onClick={this.handleSelected}>
                     <p className="title">{this.props.pInfo.name} </p>
                     <div className="img-container">
                         <img src={this.props.pInfo.img} alt=""/>
@@ -36,7 +41,6 @@ class PokemonCard extends Component {
                         <div><span>Speed</span><span>{this.props.pInfo.stats.speed}</span></div>
                     </div>
                 </div>
-
             </div>
         )
     }

@@ -5,8 +5,8 @@ $lightRed: #ff5252;
 $lightViolet: #b8b8ce;
 $violet:#94499b;
 $brown:#dcc075;
-$lightBrown:#dcc075;
-$lightBrown:#dcc075;
+$lightBrown:#e2cf83;
+$yellow:#ffeb3b;
 $lightGreen:#a3e20a;
 $green:#a3e20a;
 $darkRed:#73261f;
@@ -282,18 +282,7 @@ body
           {
             text-align: left;
 
-            $darkBlue : #25396e;
-            $lightBlue : #49a2dc;
-            $lightGray: #d2d2d2;
-            $lightRed: #ff5252;
-            $lightViolet: #b8b8ce;
-            $violet:#94499b;
-            $brown:#dcc075;
-            $lightBrown:#e2cf83;
-            $yellow:#ffeb3b;
-            $lightGreen:#a3e20a;
-            $green:#a3e20a;
-            $darkRed:#73261f;
+
 
             &.flying
             {
@@ -523,9 +512,87 @@ body
           margin:90px auto 0px;
           padding:0px 0px 20px;
           color:#fff;
-          background-color:$violet ;
+          background-color:#000000;
           border-radius:30px;
           text-align:left;
+
+
+          &.flying
+          {
+
+              background-color: $lightBlue;
+
+          }
+          &.rock
+          {
+
+              background-color: $brown;
+
+          }
+          &.water
+          {
+
+              background-color: $lightBlue;
+
+          }
+
+          &.electric
+          {
+
+              background-color: $yellow;
+
+          }
+          &.psychic
+          {
+
+              background-color: $violet;
+
+          }
+          &.fire
+          {
+
+              background-color: $darkRed;
+
+          }
+
+          &.grass
+          {
+
+              background-color: $lightGray;
+
+          }
+          &.bug
+          {
+
+              background-color: $lightRed;
+
+          }
+
+          &.normal
+          {
+
+              background-color: $lightBrown;
+
+          }
+          &.poison
+          {
+
+              background-color: $lightViolet;
+
+          }
+          &.ice
+          {
+
+              background-color: #a5d6d7;
+
+          }
+
+          &.fighting, &.dragon
+          {
+
+              background-color: $darkRed;
+
+          }
 
           & > div
           {
@@ -545,6 +612,7 @@ body
                   text-align:left;
                   top:50%;
                   @include transform(translate(0%,-50%));
+                  text-transform: capitalize;
 
                   & > p
                   {

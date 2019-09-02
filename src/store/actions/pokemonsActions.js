@@ -77,3 +77,13 @@ export const getPokemons = () => {
 
     }
 };
+
+
+export const saveSelectPokemon = (pokemonName) => {
+    return  {
+        type: 'SELECTED_POKEMON_NAME',
+        selectedPokemonName: pokemonName
+    };
+}
+
+
