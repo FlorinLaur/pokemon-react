@@ -16,7 +16,7 @@ class PokemonCard extends Component {
     render() {
 
         return (
-            <div className={'col-4 card-pokemon ' + this.props.pInfo.types[0].type.name}>
+            <div className={' col-12 col-md-4 card-pokemon ' + this.props.pInfo.types[0].type.name}>
                 <div onClick={this.handleSelected}>
                     <p className="title">{this.props.pInfo.name} </p>
                     <div className="img-container">

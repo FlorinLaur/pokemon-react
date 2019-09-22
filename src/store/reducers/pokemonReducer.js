@@ -1,6 +1,7 @@
 const initState = {
     pokemons:[],
-    selectedPokemonName:""
+    selectedPokemonName:"",
+    loading:'loading'
 }
 
 const pokemonReducer = (state = initState, action) => {
@@ -8,7 +9,8 @@ const pokemonReducer = (state = initState, action) => {
         case 'GET_POKEMONS_SUCCESS':
             return ({
                     ...state,
-                    pokemons:action.pokemons
+                    pokemons:action.pokemons,
+                    loading: ''
             })
         case 'GET_POKEMONS_ERROR':
 
@@ -18,6 +20,13 @@ const pokemonReducer = (state = initState, action) => {
             return ({
               ...state,
                 selectedPokemonName:action.selectedPokemonName
+            })
+        case 'GET_POKEMON_BY_NAME_SUCCESS':
+
+            return ({
+                ...state,
+                pokemons:action.pokemons,
+                loading: 'single-pokemon'
             })
         default:
             return state;

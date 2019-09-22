@@ -76,14 +76,52 @@ export const getPokemons = () => {
         })
 
     }
-};
+}
 
+export const getPokemonByName = (pokemonName) => {
+    return (dispatch) =>  {
+        let pokemons = []
+        fetch('https://pokeapi.co/api/v2/pokemon/'+ pokemonName.trim().toLocaleLowerCase()).then((response) =>{
+            if(response.status === 404)
+            {
+                return false
+            }else{
+                return response.json()
+            }
+        }).then((json) =>{
+
+            if(json !== false){
+                let pokemon = {
+                    name:json.name,
+                    img: json.sprites.front_default,
+                    types: json.types,
+                    stats:{}
+                }
+                json.stats.map((stat)=>{
+                    pokemon.stats[stat.stat.name] = stat.base_stat
+                })
+
+                pokemons.push(pokemon)
+            }else{
+                pokemons.push(false)
+                pokemons.push(pokemonName)
+            }
+
+
+
+        }).catch((ex)=>{
+            console.log('parsing failed', ex)
+        }).then(()=>{
+            dispatch({ type: 'GET_POKEMON_BY_NAME_SUCCESS', pokemons:  pokemons})
+        })
+    }
+}
 
 export const saveSelectPokemon = (pokemonName) => {
     return  {
         type: 'SELECTED_POKEMON_NAME',
         selectedPokemonName: pokemonName
-    };
+    }
 }
 
 
